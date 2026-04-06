@@ -7,7 +7,9 @@ import com.ansh.expenseTracker.data.local.entity.TransactionEntity
 
 @Database(
     entities = [TransactionEntity::class],
-    version = 1)
+    version = 1,
+    exportSchema = true
+)
 abstract class ExpenseTrackerDB : RoomDatabase() {
     abstract fun transactionDao() : TransactionDao
 }

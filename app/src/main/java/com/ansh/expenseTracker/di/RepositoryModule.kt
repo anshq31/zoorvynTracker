@@ -1,4 +1,19 @@
 package com.ansh.expenseTracker.di
 
-class RepositoryModule {
+import com.ansh.expenseTracker.data.repository.TransactionRepositoryImpl
+import com.ansh.expenseTracker.domain.repository.TransactionRepository
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class RepositoryModule {
+    @Binds
+    @Singleton
+    abstract fun bindTransactionRepository(
+        impl: TransactionRepositoryImpl
+    ): TransactionRepository
 }
